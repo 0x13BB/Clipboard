@@ -29,15 +29,13 @@ UDPsock::~UDPsock()
 
 void UDPsock::receive(int BufLen, char* RecvBuf)
 {
-	int res;
-
-	res = recvfrom(RecvSocket
+	int err = recvfrom(RecvSocket
 		, RecvBuf
 		, BufLen
 		, 0
 		, reinterpret_cast<SOCKADDR*>(&SenderAddr)
 		, &SenderAddrSize);
-	if (res == SOCKET_ERROR)
+	if (err == SOCKET_ERROR)
 	{
 		std::cout << WSAGetLastError() << std::endl;
 	}
@@ -54,14 +52,13 @@ void UDPsock::send(int BufLen, char* RecvBuf, const wchar_t* adr_char, unsigned 
 	InetPton(AF_INET, adr_char, &target_addr.sin_addr);
 
 
-	int res;
-	res = sendto(RecvSocket
+	int err = sendto(RecvSocket
 		, RecvBuf
 		, BufLen
 		, 0
 		, reinterpret_cast<SOCKADDR*>(&target_addr)
 		, sizeof(target_addr));
-	if (res == SOCKET_ERROR)
+	if (err == SOCKET_ERROR)
 	{
 		std::cout << WSAGetLastError() << std::endl;
 	}

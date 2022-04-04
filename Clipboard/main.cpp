@@ -16,12 +16,12 @@ int main(int argc, char* argv[])
 
 	char send_buff[1024] = {"4"};
 
-	memset(send_buff, 'A', buff_len);
+	//memset(send_buff, '\n', buff_len);
 
 	cout << send_buff << endl;
 
 	UDPsock test(L"192.168.0.101", port);
-	test.send(buff_len, send_buff, L"192.168.0.255", port);
+	test.send(buff_len, send_buff, L"192.168.0.127", port);
 	
 
 	cin.get();
