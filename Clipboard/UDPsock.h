@@ -3,11 +3,11 @@ class UDPsock
 {
 public:
 	UDPsock(unsigned short Port);
-	UDPsock(unsigned short Port, const wchar_t* adr_char);
+	UDPsock(const wchar_t* adr_char, unsigned short Port);
 	~UDPsock();
 
 	void receive(int BufLen, char* RecvBuf);
-	void send(int BufLen, char* RecvBuf, unsigned short Port, const wchar_t* adr_char);
+	void send(int BufLen, char* RecvBuf, const wchar_t* adr_char, unsigned short Port);
 
 private:
 

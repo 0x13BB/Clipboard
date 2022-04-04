@@ -11,7 +11,7 @@ UDPsock::UDPsock(unsigned short Port)
 	bind(RecvSocket, reinterpret_cast<SOCKADDR*>(&RecvAddr), sizeof(RecvAddr));
 }
 
-UDPsock::UDPsock(unsigned short Port, const wchar_t* adr_char)
+UDPsock::UDPsock(const wchar_t* adr_char, unsigned short Port)
 	: RecvSocket(socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP))
 {
 	RecvAddr.sin_family = AF_INET;
@@ -44,7 +44,7 @@ void UDPsock::receive(int BufLen, char* RecvBuf)
 
 }
 
-void UDPsock::send(int BufLen, char* RecvBuf, unsigned short Port, const wchar_t* adr_char)
+void UDPsock::send(int BufLen, char* RecvBuf, const wchar_t* adr_char, unsigned short Port)
 {
 	struct sockaddr_in target_addr;
 
