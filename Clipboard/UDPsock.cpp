@@ -38,3 +38,19 @@ char* UDPsock::receive(int BufLen, char* RecvBuf)
 
 	return this->RecvBuf;
 }
+
+void UDPsock::send(int BufLen, char* RecvBuf)
+{
+	int res;
+	res = sendto(RecvSocket
+		, RecvBuf
+		, BufLen
+		, 0
+		, reinterpret_cast<SOCKADDR*>(&RecvAddr)
+		, sizeof(RecvAddr));
+	if (res == SOCKET_ERROR)
+	{
+		std::cout << WSAGetLastError() << std::endl;
+	}
+	
+}

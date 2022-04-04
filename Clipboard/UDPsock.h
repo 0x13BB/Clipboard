@@ -1,9 +1,15 @@
 #pragma once
 class UDPsock
 {
+public:
 	UDPsock(unsigned short Port);
 	UDPsock(unsigned short Port, const wchar_t* adr_char);
 	~UDPsock();
+
+	char* receive(int BufLen, char* RecvBuf);
+	void send(int BufLen, char* RecvBuf);
+
+private:
 
 	SOCKET RecvSocket;
 
@@ -16,7 +22,6 @@ class UDPsock
 	char RecvBuf[1024];
 	int BufLen = 1024;
 
-	char* receive(int BufLen, char* RecvBuf);
-	void send();
+	
 };
 
