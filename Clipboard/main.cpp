@@ -20,8 +20,8 @@ int main(int argc, char* argv[])
 
 	cout << send_buff << endl;
 
-	UDPsock test(port, L"192.168.0.101");
-	test.send(buff_len, send_buff, port, L"192.168.0.255");
+	UDPsock test(L"192.168.0.101", port);
+	test.send(buff_len, send_buff, L"192.168.0.255", port);
 	
 
 	cin.get();
