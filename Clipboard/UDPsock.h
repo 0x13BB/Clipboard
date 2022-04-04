@@ -6,7 +6,7 @@ public:
 	UDPsock(unsigned short Port, const wchar_t* adr_char);
 	~UDPsock();
 
-	char* receive(int BufLen, char* RecvBuf);
+	void receive(int BufLen, char* RecvBuf);
 	void send(int BufLen, char* RecvBuf);
 
 private:

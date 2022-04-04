@@ -16,7 +16,9 @@ int main(int argc, char* argv[])
 
 	char send_buff[1024] = {"4"};
 
-	//memset(send_buff, 'B', buff_len);
+	memset(send_buff, ' ', buff_len);
+
+	cout << send_buff << endl;
 
 	UDPsock test(port, adr);
 	test.send(buff_len, send_buff);

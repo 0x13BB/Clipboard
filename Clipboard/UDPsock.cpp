@@ -27,16 +27,21 @@ UDPsock::~UDPsock()
 	closesocket(RecvSocket);
 }
 
-char* UDPsock::receive(int BufLen, char* RecvBuf)
+void UDPsock::receive(int BufLen, char* RecvBuf)
 {
-	recvfrom(RecvSocket
+	int res;
+
+	res = recvfrom(RecvSocket
 		, RecvBuf
 		, BufLen
 		, 0
 		, reinterpret_cast<SOCKADDR*>(&SenderAddr)
 		, &SenderAddrSize);
+	if (res == SOCKET_ERROR)
+	{
+		std::cout << WSAGetLastError() << std::endl;
+	}
 
-	return this->RecvBuf;
 }
 
 void UDPsock::send(int BufLen, char* RecvBuf)
