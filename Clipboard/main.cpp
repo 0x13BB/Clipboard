@@ -9,19 +9,19 @@ int main(int argc, char* argv[])
 
 	sock_init();
 
-	const wchar_t* adr = L"192.168.0.255";
+	//const wchar_t* addr = L"192.168.0.255";
 	unsigned short port = 5051;
 
 	int buff_len = 1024;
 
 	char send_buff[1024] = {"4"};
 
-	memset(send_buff, ' ', buff_len);
+	memset(send_buff, 'A', buff_len);
 
 	cout << send_buff << endl;
 
-	UDPsock test(port, adr);
-	test.send(buff_len, send_buff);
+	UDPsock test(port, L"192.168.0.101");
+	test.send(buff_len, send_buff, port, L"192.168.0.255");
 	
 
 	cin.get();
