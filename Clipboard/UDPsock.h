@@ -19,8 +19,7 @@ private:
 
 	int SenderAddrSize = sizeof(SenderAddr);
 
-	char RecvBuf[1024];
-	int BufLen = 1024;
+	
 
 	
 };

@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "UDPsock.h"
+#include "Clipboard.h"
+#include <charconv>
 
 int sock_init();
 
@@ -9,16 +11,20 @@ int main(int argc, char* argv[])
 
 	sock_init();
 
-	//const wchar_t* addr = L"192.168.0.255";
+	
 	unsigned short port = 5051;
 
-	int buff_len = 1024;
+	
 
-	char send_buff[1024] = {"4"};
-
-	//memset(send_buff, '\n', buff_len);
-
+	char send_buff[10] = {'0','1','2','3','4','5','6','7','8','\0'};
+	
+	
 	cout << send_buff << endl;
+
+	//std::memset(send_buff, '9', strlen(send_buff));
+
+	int buff_len = strlen(send_buff)+1;
+	
 
 	UDPsock test(L"192.168.0.101", port);
 	test.send(buff_len, send_buff, L"192.168.0.127", port);
