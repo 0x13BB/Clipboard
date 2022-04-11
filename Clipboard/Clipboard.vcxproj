@@ -161,6 +161,7 @@
     <ClInclude Include="Clipboard.h" />
     <ClInclude Include="Isock.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PerfTimer.h" />
     <ClInclude Include="UDPsock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "UDPsock.h"
 #include "Clipboard.h"
-#include <charconv>
+
+
 
 int sock_init();
 
@@ -11,25 +12,37 @@ int main(int argc, char* argv[])
 
 	sock_init();
 
-	
+
 	unsigned short port = 5051;
 
-	
 
-	char send_buff[10] = {'0','1','2','3','4','5','6','7','8','\0'};
-	
-	
+
+	//char send_buff[10] = {'0','1','2','3','4','5','6','7','8','\0'};
+	string ss = Clipboard::GetData();
+
+	char* send_buff = &ss[0];
+
+
+	//strcpy(send_buff, ss.c_str());
+
 	cout << send_buff << endl;
 
-	//std::memset(send_buff, '9', strlen(send_buff));
 
-	int buff_len = strlen(send_buff)+1;
+
+	int buff_len = 512;
+	int a;
+	{
+		a = 0;
+		PerfTimer<std::chrono::milliseconds> v1("first");
+	}
+	{
+		PerfTimer<std::chrono::milliseconds> v2("second");
+		UDPsock test(L"192.168.0.101", port);
+		test.send(buff_len, send_buff, L"192.168.0.255", port);
+	}
 	
-
-	UDPsock test(L"192.168.0.101", port);
-	test.send(buff_len, send_buff, L"192.168.0.127", port);
 	
-
+	cout << a << endl;
 	cin.get();
 	WSACleanup();
 	return 0;
