@@ -155,14 +155,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UDPsock.cpp" />
+    <ClCompile Include="udp_socket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Clipboard.h" />
-    <ClInclude Include="Isock.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfTimer.h" />
-    <ClInclude Include="UDPsock.h" />
+    <ClInclude Include="PODstruct.h" />
+    <ClInclude Include="udp_socket.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,10 +1,13 @@
 #pragma once
 
 #include <iostream>
+#include <thread>
 
 // data structures
 #include <string>
 #include <chrono>
+#include <regex>
+#include <tuple>
 // api
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN

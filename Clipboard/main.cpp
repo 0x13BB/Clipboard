@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "UDPsock.h"
+#include "udp_socket.h"
 #include "Clipboard.h"
-
+#include "PODstruct.h"
 
 
 int sock_init();
@@ -15,34 +15,25 @@ int main(int argc, char* argv[])
 
 	unsigned short port = 5051;
 
+	cout << "enter port in range 1-65535, default 5051\n";
+	
+	//cin >> port;
 
 
-	//char send_buff[10] = {'0','1','2','3','4','5','6','7','8','\0'};
+
 	string ss = Clipboard::GetData();
 
 	char* send_buff = &ss[0];
 
 
-	//strcpy(send_buff, ss.c_str());
+	PODstruct A = PODstruct();
+	
 
-	cout << send_buff << endl;
-
-
-
-	int buff_len = 512;
-	int a;
-	{
-		a = 0;
-		PerfTimer<std::chrono::milliseconds> v1("first");
-	}
-	{
-		PerfTimer<std::chrono::milliseconds> v2("second");
-		UDPsock test(L"192.168.0.101", port);
-		test.send(buff_len, send_buff, L"192.168.0.255", port);
-	}
+	cout << is_pod_v<PODstruct> << '\n';
+	cout << sizeof(A) << '\n';
 	
 	
-	cout << a << endl;
+	cin.ignore();
 	cin.get();
 	WSACleanup();
 	return 0;
@@ -66,3 +57,5 @@ int sock_init()
 	
 	return 0;
 }
+
+

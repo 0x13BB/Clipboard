@@ -21,7 +21,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="UDPsock.cpp">
+    <ClCompile Include="udp_socket.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Clipboard.cpp">
@@ -32,16 +32,16 @@
     <ClInclude Include="pch.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Isock.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="UDPsock.h">
+    <ClInclude Include="udp_socket.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Clipboard.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="PerfTimer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="PODstruct.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
