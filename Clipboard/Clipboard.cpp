@@ -21,7 +21,7 @@ std::string Clipboard::GetData()
 
 void Clipboard::SetData(const std::string& textData)
 {
-	OpenClipboard(NULL);
+	OpenClipboard(nullptr);
 	EmptyClipboard();
 	HANDLE data = GlobalAlloc(GMEM_MOVEABLE, textData.size() + 1);
 	memcpy(GlobalLock(data), textData.c_str(), textData.size() + 1);
