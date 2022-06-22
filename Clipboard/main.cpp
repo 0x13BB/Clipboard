@@ -8,6 +8,8 @@ int sock_init();
 
 void async_sender_function();
 
+int64_t get_unique_number();
+
 int main(int argc, char* argv[])
 {
 	using std::cout;
@@ -21,9 +23,6 @@ int main(int argc, char* argv[])
 	cout << std::is_pod_v<PODstruct> << '\n';
 
 	auto test_arr = Converter::string_to_char_arrays(Clipboard::GetData());
-
-	//std::cout << test_arr[0][0];
-
 
 	auto str1 = Converter::char_arrays_to_string(test_arr);
 
@@ -115,3 +114,30 @@ void async_sender_function()
 		}
 	}
 }
+
+int64_t get_unique_number()
+{
+	static int64_t old_unix_time;
+	static int64_t counter = 0;
+
+	int64_t unix_time = std::time(nullptr) * 10000;
+
+	if (unix_time + counter > old_unix_time + counter)
+	{
+		old_unix_time = unix_time;
+		counter = 0;
+		return old_unix_time;
+	}
+	else
+	{
+		++counter;
+		old_unix_time = unix_time + counter;
+		return old_unix_time;
+	}
+}
+
+
+
+
+
+
