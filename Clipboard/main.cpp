@@ -4,37 +4,35 @@
 #include "PODstruct.h"
 #include "Converter.h"
 
-
 int sock_init();
 
 void async_sender_function();
-
 
 int main(int argc, char* argv[])
 {
 	using std::cout;
 	using std::cin;
-	
 
 	sock_init();
-
 	
 	cout << "press ctrl + c\n";
 
 	sizeof(PODstruct);
 	cout << std::is_pod_v<PODstruct> << '\n';
 
-	
 	auto test_arr = Converter::string_to_char_arrays(Clipboard::GetData());
-	
 
-	std::cout << test_arr[0][0];
+	//std::cout << test_arr[0][0];
 
 
+	auto str1 = Converter::char_arrays_to_string(test_arr);
+
+	cout << str1.find("OD") << '\n';
 
 	cin.ignore();
 	cin.get();
 	WSACleanup();
+
 	return 0;
 }
 
@@ -50,10 +48,6 @@ int sock_init()
 		return 1;
 	}
 
-
-
-	
-	
 	return 0;
 }
 
@@ -86,7 +80,6 @@ int sock_init()
 //		}
 //	}
 //}
-
 
 void async_sender_function()
 {

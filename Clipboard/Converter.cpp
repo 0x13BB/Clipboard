@@ -36,3 +36,20 @@ std::vector<std::array<char, 480>> Converter::string_to_char_arrays(std::string 
 
 	return vector_of_arrays;
 }
+
+std::string Converter::char_arrays_to_string(std::vector<std::array<char, 480>> vector_of_arrays)
+{
+
+	std::string string(vector_of_arrays.size() * 480, '\n');
+	
+	
+
+	for (size_t i = 0; i < vector_of_arrays.size(); i++)
+	{
+		for (size_t j = 0; j < 480; j++)
+		{
+			string[j + i * 480] = vector_of_arrays[i][j];
+		}
+	}
+	return string;
+}
