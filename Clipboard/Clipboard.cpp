@@ -6,12 +6,12 @@ std::string Clipboard::GetData()
 	OpenClipboard(nullptr);
 	HANDLE data = GetClipboardData(CF_TEXT);
 	char* buffer = static_cast<char*>(GlobalLock(data));
-	std::string ss(buffer);
+	std::string buffer_string(buffer);
 	GlobalUnlock(data);
 	CloseClipboard();
 	if (data != nullptr)
 	{
-		return ss;
+		return buffer_string;
 	}
 	else
 	{

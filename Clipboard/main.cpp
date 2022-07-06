@@ -8,7 +8,7 @@ int sock_init();
 
 void async_sender_function();
 
-int64_t get_unique_number();
+uint64_t get_unique_number();
 
 int main(int argc, char* argv[])
 {
@@ -115,12 +115,12 @@ void async_sender_function()
 	}
 }
 
-int64_t get_unique_number()
+uint64_t get_unique_number()
 {
-	static int64_t old_unix_time;
-	static int64_t counter = 0;
+	static uint64_t old_unix_time;
+	static uint64_t counter = 0;
 
-	int64_t unix_time = std::time(nullptr) * 10000;
+	uint64_t unix_time = std::time(nullptr) * 10000;
 
 	if (unix_time + counter > old_unix_time + counter)
 	{
