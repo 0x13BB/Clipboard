@@ -3,6 +3,8 @@
 #include "Clipboard.h"
 #include "PODstruct.h"
 #include "Converter.h"
+#include <random>
+#include "Pocket_builder.h"
 
 int sock_init();
 
@@ -17,21 +19,24 @@ int main(int argc, char* argv[])
 
 	sock_init();
 	
-	cout << "press ctrl + c\n";
+	
 
-	sizeof(PODstruct);
-	cout << std::is_pod_v<PODstruct> << '\n';
+	std::string str = Clipboard::GetData();
 
-	auto test_arr = Converter::string_to_char_arrays(Clipboard::GetData());
+	auto vec = Converter::string_to_char_arrays(str);
 
-	auto str1 = Converter::char_arrays_to_string(test_arr);
+	auto pck = Pocket_builder::create_single_pocket(0, 1, 1, 1, vec[0]);
 
-	cout << str1.find("OD") << '\n';
+	for (size_t i = 0; i < 512; i++)
+	{
+		cout << pck[0][i];
+	}
+
 
 	cin.ignore();
 	cin.get();
 	WSACleanup();
-
+	
 	return 0;
 }
 
@@ -135,9 +140,6 @@ uint64_t get_unique_number()
 		return old_unix_time;
 	}
 }
-
-
-
 
 
 

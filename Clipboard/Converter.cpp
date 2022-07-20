@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Converter.h"
 
-std::vector<std::array<char, 480>> Converter::string_to_char_arrays(std::string string)
+std::vector<std::array<char, 480>> Converter::string_to_char_arrays(std::string &string)
 {
 	std::array<char, 480> char_array = {};
 
